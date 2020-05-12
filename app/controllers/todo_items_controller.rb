@@ -21,7 +21,13 @@ class TodoItemsController < ApplicationController
     redirect_to @todo_list, notice: "Todo item completed"
   end
 
+  def important
+    @todo_item.update_attribute(:is_important, true)
+    redirect_to @todo_list, notice: "Todo item set as important"
+  end
   private
+
+
 
   def set_todo_list
     @todo_list = TodoList.find(params[:todo_list_id])

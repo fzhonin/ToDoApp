@@ -4,4 +4,8 @@ class TodoItem < ApplicationRecord
   def completed?
     !completed_at.blank?
   end
+
+  def important?
+    is_important
+  end
 end
