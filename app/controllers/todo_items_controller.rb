@@ -17,14 +17,25 @@ class TodoItemsController < ApplicationController
   end
 
   def complete
+    if @todo_item.completed_at.nil?
     @todo_item.update_attribute(:completed_at, Time.now)
     redirect_to @todo_list, notice: "Todo item completed"
-  end
+    else
+      @todo_item.update_attribute(:completed_at, nil)
+      redirect_to @todo_list, notice: "Todo item set as uncompleted"
+    end
+    end
 
   def important
-    @todo_item.update_attribute(:is_important, true)
+    temp = !@todo_item.is_important
+    @todo_item.update_attribute(:is_important, temp)
+    if temp
     redirect_to @todo_list, notice: "Todo item set as important"
+    else
+      redirect_to @todo_list, notice: "Todo item set as unimportant"
+    end
   end
+
   private
 
 
