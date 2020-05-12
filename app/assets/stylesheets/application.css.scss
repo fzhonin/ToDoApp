@@ -61,7 +61,7 @@ body {
     }
 
     .todo_item {
-      width: 70%;
+      width: 65%;
       float: left;
 
       p {
@@ -72,17 +72,15 @@ body {
       }
     }
   .important {
-    width: 10%;
+    width: 5%;
     float: right;
     text-align: center;
-
     padding: 1em 0;
   }
     .trash {
       width: 10%;
       float: right;
       text-align: center;
-      border-left: 1px solid rgba(250, 250, 250, .3);
       padding: 1em 0;
     }
 
