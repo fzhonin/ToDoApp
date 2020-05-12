@@ -6,7 +6,7 @@
   <%end%>
   </div>
     <div class="todo_item">
-      <p style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
+      <p class="<%= 'important-content' if todo_item.important? %>" style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
     </div>
 
   <% else %>
@@ -16,7 +16,7 @@
       <%end%>
     </div>
     <div class ="todo_item">
-      <p><%= todo_item.content %></p>
+      <p class="<%= 'important-content' if todo_item.important?%>"><%= todo_item.content %></p>
     </div>
     <%end %>
 
@@ -29,7 +29,8 @@
   <% if todo_item.important? %>
     <div class="important">
       <%= link_to  important_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do%>
-    <i style= "color:red;" class="fa fa-star"></i>
+    <i style= "color:indianred;" class="fa fa-star"></i>
+        <div class="todo_item" style="color:red"></div>
       <%end %>
         </div>
   <%else %>
